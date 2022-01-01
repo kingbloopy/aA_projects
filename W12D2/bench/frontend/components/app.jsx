@@ -1,6 +1,8 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import GreetingContainer from "./greeting/greeting_container";
+import LoginFormContainer from "./Forms/login_form_container";
+import SignupFormContainer from "./Forms/signup_form_container";
 
 const App = () => (
   <div>
@@ -8,9 +10,8 @@ const App = () => (
     <h1>Bench BnB</h1>
     <GreetingContainer/>
     </header>
-    {/* <Switch> */}
-    {/* <Route path="/signup" component={}/> */}
-    {/* </Switch> */}
+    <Route path="/signup" component={SignupFormContainer}/>
+    <Route path="/login" component={LoginFormContainer}/>
   </div>
 );
 
