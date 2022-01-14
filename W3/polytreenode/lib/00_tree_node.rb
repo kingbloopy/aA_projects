@@ -11,7 +11,7 @@ class PolyTreeNode
     def parent=(node)
         @parent = node
         children += node.children unless node.nil?
-        puts "something random"
+        # puts "something random"
     end
 
 end
