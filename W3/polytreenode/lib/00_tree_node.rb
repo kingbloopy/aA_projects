@@ -15,3 +15,5 @@ class PolyTreeNode
     end
 
 end
+
+puts "Hello"
