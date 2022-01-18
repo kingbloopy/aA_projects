@@ -1,3 +1,4 @@
+require_relative "employee"
 
 class Manager < Employee
   def initialize(name, title, salary, boss)
@@ -7,7 +8,19 @@ class Manager < Employee
 
   def bonus(multiplier)
     sum = 0
-    employees.each {|employee| sum += employee.salary}
+    # queue = employees.dup
+
+    # until queue.empty?
+    #   current_employee = queue.pop
+
+    employees.each do |employee|
+      if employee.employees.nil?
+        sum += employee.salary
+      else
+        sum += employee.bonus(multiplier)
+      end
+    end
+
     sum * multiplier
   end
 end
