@@ -18,8 +18,17 @@ class Board
 
   def move_piece(start_pos, end_pos)
     piece = self[start_pos] # value at the start pos
-    self[end_pos] = piece # reassiging the end pos given value
-    self[start_pos] = nil # resetting start pos to "empty"
+
+    if self[start_pos].nil? 
+      raise "no piece at position"
+    end
+
+    if self[end_pos].nil?  #check if end position is not nil
+      self[end_pos] = piece # reassiging the end pos given value
+      self[start_pos] = nil # resetting start pos to "empty"
+    else
+      raise "invalid position"
+    end
   end
 
 end
