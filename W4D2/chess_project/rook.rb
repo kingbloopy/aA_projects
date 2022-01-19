@@ -5,6 +5,7 @@ class Rook < Piece
     include Slidable
 
     def symbol
+        
     end
 
     private
