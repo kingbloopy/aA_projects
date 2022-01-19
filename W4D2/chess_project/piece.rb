@@ -5,6 +5,10 @@ class Piece
         @pos = pos
     end
 
+    def moves
+      # need to use super within the subclass in order to implement
+    end
+
     def to_s
 
     end
