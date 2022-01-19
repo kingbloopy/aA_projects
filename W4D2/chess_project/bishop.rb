@@ -1,7 +1,7 @@
 require_relative 'piece'
 require_relative 'slidable'
 
-class Rook < Piece
+class Bishop < Piece
     include Slidable
 
     def symbol
@@ -9,6 +9,6 @@ class Rook < Piece
 
     private
     def move_dirs
-        horizontal_dirs + vertical_dirs
+        diagonal_dirs
     end
 end
