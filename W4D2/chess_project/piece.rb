@@ -36,3 +36,5 @@ class Piece
 
     end
 end
+
+#[rook, knight, bishop, queen, king, bishop, knight, rook]

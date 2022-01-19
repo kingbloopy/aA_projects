@@ -1,9 +1,9 @@
 require_relative 'piece'
 
-class Knight < Piece
+class King < Piece
 
   def symbol
-    '♞'.colorize(color)
+    '♚'.colorize(color)
   end
 
   def diffs

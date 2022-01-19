@@ -5,9 +5,10 @@ class Queen < Piece
     include Slidable
 
     def symbol
+        '♕'.colorize(color)
     end
 
-    private
+    protected
     def move_dirs
         horizontal_dirs + vertical_dirs + diagonal_dirs
     end

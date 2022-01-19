@@ -5,9 +5,10 @@ class Bishop < Piece
     include Slidable
 
     def symbol
+        '♗'.colorize(color)
     end
 
-    private
+    protected
     def move_dirs
         diagonal_dirs
     end
