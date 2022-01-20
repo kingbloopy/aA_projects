@@ -20,6 +20,8 @@
         # 6[ _ , _ , _ , _ , _ , _ , _ , _ ]
         # 7[ _ , _ , _ , _ , _ , _ , _ , _ ]
 
+require "byebug"
+
 module Slidable
     HORIZONTAL_DIRS = [
         [0, 1],  #right
@@ -78,16 +80,23 @@ module Slidable
     # the given direction is represented by two args, the combination of a dx and dy
     def grow_unblocked_moves_in_dir(dx, dy)
         possible_pos = []
+        debugger
         current_pos = self.pos # get the piece's current row and current column
-        new_row = current_pos[0] + dx
-        new_col = current_pos[1] + dy
+        new_row = current_pos[0] # 7
+        new_col = current_pos[1] # 0
         
-        until !new_row.between?(0..7) || !new_col.between?(0..7)
-            if self[new_row, new_col] == Null.instance
+        while new_row.between?(0,7) && new_col.between?(0,7)
+            new_row += dx
+            new_col += dy
+
+            if board[[new_row, new_col]].empty?
                 possible_pos << [new_row, new_col]
-                current_pos = [new_row, new_col]
-            elsif self[new_row, new_col].color != self.color
+
+            elsif self.board[[new_row, new_col]].color != self.board[[current_pos[0], current_pos[1]]].color
                 possible_pos << [new_row, new_col]
+                return possible_pos
+
+            elsif self.board[[new_row, new_col]].color == self.board[[current_pos[0], current_pos[1]]].color
                 return possible_pos
             end
         end

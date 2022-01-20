@@ -18,23 +18,25 @@ class Board
     pieces = [Rook, Knight, Bishop, Queen, King, Bishop, Knight, Rook]
 
     pieces.each.with_index do |ele, i|
-      self[[0, i]] = ele.new(:black, @grid, [0, i])
+      self[[0, i]] = ele.new(:black, self, [0, i])
     end
 
     pieces.each.with_index do |ele, i|
-      self[[7, i]] = ele.new(:white, @grid, [7, i])
+      self[[7, i]] = ele.new(:white, self, [7, i])
     end
   end
 
   def populate_pawns
+
   end
 
-  def [](pos)
+  def [](pos) # 7 0
     row, col = pos
     @grid[row][col]
+    # @grid[pos[0]][pos[1]]
   end
 
-  def []=(pos, val)
+  def []=(pos, val) 
     row, col = pos
     @grid[row][col] = val
   end

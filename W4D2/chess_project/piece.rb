@@ -3,7 +3,7 @@ require_relative 'slidable'
 class Piece
     include Slidable
 
-    attr_reader :board, :pos
+    attr_reader :board, :pos, :color
 
     def initialize(color, board, pos)
         @color = color    #diagram says @color: symbol
