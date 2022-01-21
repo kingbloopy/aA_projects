@@ -1,3 +1,4 @@
+require "byebug"
 
 def my_min(integers) # O(n^2)
   min = integers.first
@@ -33,9 +34,33 @@ end
 # p max_sub_sum(list)
 
 def max_sub_sum_faster(nums)
-  max = nil
+  # debugger
+  max = nums.first
+
   (0...nums.length).each do |i|
+    # current_sum = 0
+    if nums[i..-i -1].sum >= nums[i..-1].sum && !nums[i..-i -1].empty?
+      current_sum = nums[i..-i -1].sum 
+    else
+      current_sum = nums[i..-1].sum 
+    end
+    if nums[0..-i - 1].sum >= current_sum
+      current_sum = nums[0..-i - 1].sum
+    end
+    if current_sum >= max
+      max = current_sum
+    end
+  end
+  max
 end
+
+
+n = [-5, -1, -3]
+p max_sub_sum_faster(n)
+list = [5, 3, -7]
+p max_sub_sum_faster(list)
+arr = [2, 3, -6, 7, -6, 7]
+p max_sub_sum_faster(arr)
 
 
 # if num[i..-i -1].sum <= nums[i..-1].sum ? current_sum = num[i..-i -1].sum
