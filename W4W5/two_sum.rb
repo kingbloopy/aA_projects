@@ -33,6 +33,20 @@ def bsearch(arr, target)
   end
 end
 
+# arr = [0, 1, 5, 7]
+# p okay_two_sum?(arr, 6)
+# p okay_two_sum?(arr, 10)
+
+def elegant_two_sum?(arr, target)
+  check_pairs_hash = {}
+  arr.each do |ele| 
+    guess = target - ele
+    return true if check_pairs_hash.has_key?(guess)
+    check_pairs_hash[ele] = guess
+  end 
+  false
+end
+
 arr = [0, 1, 5, 7]
-p okay_two_sum?(arr, 6)
-p okay_two_sum?(arr, 10)
+p elegant_two_sum?(arr, 6)
+p elegant_two_sum?(arr, 10)
