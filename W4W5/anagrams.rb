@@ -15,8 +15,8 @@ def factorial(num)
   num * factorial(num - 1)
 end
 
-p first_anagram?("gizmo", "sally")    #=> false
-p first_anagram?("elvis", "lives")    #=> true
+# p first_anagram?("gizmo", "sally")    #=> false
+# p first_anagram?("elvis", "lives")    #=> true
 
 
 def second_anagram(str1, str2)
@@ -31,5 +31,27 @@ def second_anagram(str1, str2)
 end
 
 
-p second_anagram("gizmo", "sally")    #=> false
-p second_anagram("elvis", "lives")    #=> true
+# p second_anagram("gizmo", "sally")    #=> false
+# p second_anagram("elvis", "lives")    #=> true
+
+def third_anagram?(str1, str2)
+
+  str1.chars.sort == str2.chars.sort
+
+end
+
+# p third_anagram?("gizmo", "sally")    #=> false
+# p third_anagram?("elvis", "lives")    #=> true
+
+def fourth_anagram?(str1, str2)
+  char_hash = Hash.new(0)
+
+  str1.each_char{|char| char_hash[char] += 1}
+  str2.each_char{|char| char_hash[char] -= 1}
+
+  char_hash.values.all?{|v| v == 0}
+
+end
+
+# p fourth_anagram?("gizmo", "sally")    #=> false
+# p fourth_anagram?("elvis", "lives")    #=> true
