@@ -49,6 +49,49 @@ end
 
 class MyStack
 
+  def initialize
+    @underlying_array = []
+  end
+
+  def push(ele)
+    @underlying_array << ele
+    ele
+  end
+  
+  def pop
+    @underlying_array.pop
+  end
+
+  def size
+    @underlying_array.length
+  end
+
+  def empty?
+    size == 0
+  end
+
+  def peek
+    @underlying_array.last
+  end
+
+end
+
+
+class StackQueue < MyQueue
+
+  def initialize
+    @underlying_stack_1 = MyStack.new
+    @underlying_stack_2 = MyStack.new
+  end
+
+  def size
+    @underlying_stack_1.size + @underlying_stack_2.size
+  end
+
+  # def empty?
+  #   size == 0
+  # end
+
   
 
 end
