@@ -22,7 +22,7 @@ class Users
   end
 
   def self.find_by_name(fname, lname)
-    QuestionsDatabase.instance.execute(<<-SQL, fname, lname)
+    data =QuestionsDatabase.instance.execute(<<-SQL, fname, lname)
       SELECT
         *
       FROM
@@ -32,10 +32,12 @@ class Users
       AND
         lname = ?
     SQL
+
+    Users.new(data.first)
   end
 
   def self.find_by_id(id)
-    QuestionsDatabase.instance.execute(<<-SQL, id)
+    data = QuestionsDatabase.instance.execute(<<-SQL, id)
       SELECT
         *
       FROM
@@ -43,6 +45,8 @@ class Users
       WHERE
         id = ?
     SQL
+
+    Users.new(data.first)
   end
 
   def initialize(options)
@@ -51,11 +55,32 @@ class Users
     @lname = options['lname']
   end
 
+  def authored_questions
+    Questions.find_by_author_id(id)
+  end
+
+  def authored_replies
+    Replies.find_by_reply_user_id(id)
+  end
+
 end
 
 class Questions
 
   attr_accessor :id, :title, :body, :author_id
+
+  def self.find_by_author_id(author_id)
+    data = QuestionsDatabase.instance.execute(<<-SQL, author_id)
+      SELECT
+        *
+      FROM
+        questions
+      WHERE
+        author_id = ?
+    SQL
+
+    Questions.new(data.first)
+  end
 
   def self.all
     data = QuestionsDatabase.instance.execute('SELECT * FROM questions')
@@ -63,7 +88,7 @@ class Questions
   end
 
   def self.find_title(title)
-    QuestionsDatabase.instance.execute(<<-SQL, title)
+    data = QuestionsDatabase.instance.execute(<<-SQL, title)
       SELECT
         *
       FROM
@@ -71,10 +96,12 @@ class Questions
       WHERE
         title = ?
     SQL
+
+    Questions.new(data.first)
   end
 
   def self.find_by_id(id)
-    QuestionsDatabase.instance.execute(<<-SQL, id)
+    data = QuestionsDatabase.instance.execute(<<-SQL, id)
       SELECT
         *
       FROM
@@ -82,6 +109,8 @@ class Questions
       WHERE
         id = ?
     SQL
+
+    Questions.new(data.first)
   end
 
   def initialize(options)
@@ -90,6 +119,26 @@ class Questions
     @body = options['body']
     @author_id = options['author_id']
   end
+
+  def author
+    data = QuestionsDatabase.instance.execute(<<-SQL, author_id)
+      SELECT
+        *
+      FROM
+        questions
+      JOIN 
+        users 
+      ON
+        users.id = ?
+    SQL
+
+    Users.new(data.first)
+  end
+
+  def replies
+    Replies.find_by_question_subject_id(id)
+  end
+
 end
 
 class QuestionFollows
@@ -102,7 +151,7 @@ class QuestionFollows
   end
 
   def self.find_by_id(id)
-    QuestionsDatabase.instance.execute(<<-SQL, id)
+    data = QuestionsDatabase.instance.execute(<<-SQL, id)
       SELECT
         *
       FROM
@@ -110,6 +159,8 @@ class QuestionFollows
       WHERE
         id = ?
     SQL
+
+    QuestionFollows.new(data.first)
   end
 
   def initialize(options)
@@ -124,8 +175,35 @@ class Replies
 
   attr_accessor :id, :question_subject_id, :parent_id, :reply_user_id, :body
 
+  def self.find_by_reply_user_id(reply_user_id)
+    data = QuestionsDatabase.instance.execute(<<-SQL, reply_user_id)
+      SELECT
+        *
+      FROM
+        replies
+      WHERE
+        reply_user_id = ?
+    SQL
+
+    Replies.new(data.first)
+  end
+
+  def self.find_by_question_subject_id(question_subject_id)
+    data = QuestionsDatabase.instance.execute(<<-SQL, question_subject_id)
+      SELECT
+        *
+      FROM
+        replies
+      WHERE
+        question_subject_id = ?
+    SQL
+
+    Replies.new(data.first)
+  end
+  
+
   def self.find_by_id(id)
-    QuestionsDatabase.instance.execute(<<-SQL, id)
+    data = QuestionsDatabase.instance.execute(<<-SQL, id)
       SELECT
         *
       FROM
@@ -133,6 +211,13 @@ class Replies
       WHERE
         id = ?
     SQL
+
+    Replies.new(data.first)
+  end
+
+  def self.all
+    data = QuestionsDatabase.instance.execute('SELECT * FROM replies')
+    data.map { |datum| Replies.new(datum) }
   end
 
   def initialize(options)
@@ -143,4 +228,45 @@ class Replies
     @body = options['body']
   end
 
+  def author
+    Users.find_by_id(reply_user_id)
+  end
+
+  def question 
+    Questions.find_by_id(question_subject_id)
+  end
 end
+
+
+class QuestionLikes
+
+  attr_accessor :id, :likes, :user_id, :question_id
+
+  def self.find_by_id(id)
+    data = QuestionsDatabase.instance.execute(<<-SQL, id)
+      SELECT
+        *
+      FROM
+        question_likes
+      WHERE
+        id = ?
+    SQL
+
+    QuestionLikes.new(data.first)
+  end
+
+  def self.all
+    data = QuestionsDatabase.instance.execute('SELECT * FROM question_likes')
+    data.map { |datum| QuestionLikes.new(datum) }
+  end
+
+  def initialize(options)
+    @id = options['id']
+    @likes = options['likes']
+    @user_id = options['user_id']
+    @question_id = options['question_id']
+  end
+
+end
+
+
