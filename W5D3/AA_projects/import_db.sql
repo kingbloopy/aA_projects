@@ -43,7 +43,7 @@ CREATE TABLE question_likes(
   question_id INTEGER NOT NULL,
 
   FOREIGN KEY (user_id) REFERENCES users(id),
-  FOREIGN KEY (question_id) REFERENCES questions(id),
+  FOREIGN KEY (question_id) REFERENCES questions(id)
 );
 
 
@@ -57,7 +57,7 @@ VALUES
 INSERT INTO
   questions (title, body, author_id)
 VALUES
-  ('Colors', 'What color is the sun?', 1)
+  ('Colors', 'What color is the sun?', 1),
   ('Pickle', 'How do I become a pickle?', 2);
 
 INSERT INTO
