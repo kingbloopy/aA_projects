@@ -69,8 +69,8 @@ VALUES
 INSERT INTO
   replies (question_subject_id, parent_id, reply_user_id, body)
 VALUES
-  (1, 1, 2, 'Yellow'),
-  (2, 1, 1, 'Watch Rick and Morty');
+  (1, NULL, 2, 'Yellow'),
+  (2, NULL, 1, 'Watch Rick and Morty');
 
 INSERT INTO
   question_likes (likes, user_id, question_id)
