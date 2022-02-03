@@ -2995,3 +2995,167 @@ Processing by ArtworksController#show as */*
 Completed 200 OK in 24ms (Views: 0.6ms | ActiveRecord: 7.4ms)
 
 
+Started GET "//artworks" for ::1 at 2022-02-03 14:02:51 -0800
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/kingbloopy/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  
+ActionController::RoutingError (No route matches [GET] "/artworks"):
+  
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "//users/1/artworks" for ::1 at 2022-02-03 14:09:49 -0800
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/artworks_controller.rb:9
+Completed 200 OK in 34ms (Views: 10.4ms | ActiveRecord: 14.4ms)
+
+
+Started GET "/users/2/artworks" for ::1 at 2022-02-03 14:24:05 -0800
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"2"}
+No template found for ArtworksController#index, rendering head :no_content
+Completed 204 No Content in 330ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/2/artworks" for ::1 at 2022-02-03 14:26:28 -0800
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"2"}
+  [1m[36mArtwork Load (3.8ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+  ↳ app/controllers/artworks_controller.rb:9
+Completed 200 OK in 40ms (Views: 11.9ms | ActiveRecord: 20.6ms)
+
+
+Started GET "/users/2/artworks" for ::1 at 2022-02-03 14:27:54 -0800
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"2"}
+  [1m[36mArtwork Load (0.9ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+  ↳ app/controllers/artworks_controller.rb:10
+Completed 200 OK in 34ms (Views: 13.7ms | ActiveRecord: 11.9ms)
+
+
+Started GET "/users/2/artworks" for ::1 at 2022-02-03 14:28:34 -0800
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"2"}
+  [1m[36mArtwork Load (0.5ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+  ↳ app/controllers/artworks_controller.rb:12
+Completed 200 OK in 30ms (Views: 9.7ms | ActiveRecord: 9.4ms)
+
+
+Started GET "/users/14/artworks" for ::1 at 2022-02-03 14:39:11 -0800
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/kingbloopy/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"14"}
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 2.1ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column artworks.user_id does not exist
+LINE 1: SELECT "artworks".* FROM "artworks" WHERE "artworks"."user_i...
+                                                  ^
+: SELECT "artworks".* FROM "artworks" WHERE "artworks"."user_id" = $1):
+  
+app/controllers/artworks_controller.rb:7:in `index'
+Started GET "/users/2/artworks" for ::1 at 2022-02-03 14:40:55 -0800
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"2"}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column artworks.user_id does not exist
+LINE 1: SELECT "artworks".* FROM "artworks" WHERE "artworks"."user_i...
+                                                  ^
+: SELECT "artworks".* FROM "artworks" WHERE "artworks"."user_id" = $1):
+  
+app/controllers/artworks_controller.rb:7:in `index'
+Started GET "/users/2/artworks" for ::1 at 2022-02-03 14:43:29 -0800
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"2"}
+  [1m[36mArtwork Load (3.0ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" WHERE "artworks"."artist_id" = $1[0m  [["artist_id", 2]]
+  ↳ app/controllers/artworks_controller.rb:7
+Completed 200 OK in 35ms (Views: 11.1ms | ActiveRecord: 12.9ms)
+
+
+Started GET "/users/14/artworks" for ::1 at 2022-02-03 14:43:48 -0800
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"14"}
+  [1m[36mArtwork Load (0.4ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" WHERE "artworks"."artist_id" = $1[0m  [["artist_id", 14]]
+  ↳ app/controllers/artworks_controller.rb:7
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/1/artworks" for ::1 at 2022-02-03 14:49:19 -0800
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mArtwork Load (1.1ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" WHERE "artworks"."artist_id" = $1[0m  [["artist_id", 1]]
+  ↳ app/controllers/artworks_controller.rb:6
+Redirected to http://localhost:3000/users
+Completed 302 Found in 15ms (ActiveRecord: 6.6ms)
+
+
+Started GET "/users" for ::1 at 2022-02-03 14:49:19 -0800
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4
+Completed 200 OK in 30ms (Views: 7.7ms | ActiveRecord: 13.9ms)
+
+
+Started GET "/users/2/artworks" for ::1 at 2022-02-03 14:49:37 -0800
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"2"}
+  [1m[36mArtwork Load (0.8ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" WHERE "artworks"."artist_id" = $1[0m  [["artist_id", 2]]
+  ↳ app/controllers/artworks_controller.rb:6
+Completed 200 OK in 19ms (Views: 1.8ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/users/3/artworks" for ::1 at 2022-02-03 14:49:57 -0800
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"3"}
+  [1m[36mArtwork Load (0.8ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" WHERE "artworks"."artist_id" = $1[0m  [["artist_id", 3]]
+  ↳ app/controllers/artworks_controller.rb:6
+Completed 200 OK in 4ms (Views: 0.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/14/artworks" for ::1 at 2022-02-03 14:50:05 -0800
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"14"}
+  [1m[36mArtwork Load (0.4ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" WHERE "artworks"."artist_id" = $1[0m  [["artist_id", 14]]
+  ↳ app/controllers/artworks_controller.rb:6
+Redirected to http://localhost:3000/users
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/users" for ::1 at 2022-02-03 14:50:05 -0800
+Processing by UsersController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4
+Completed 200 OK in 4ms (Views: 2.4ms | ActiveRecord: 1.0ms)
+
+

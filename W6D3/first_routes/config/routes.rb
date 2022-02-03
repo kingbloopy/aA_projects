@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :users, except: [:patch, :put] do
     resources :artworks, only: [:index]
   end
+  # GET /users/:user_id/artworks
 
   resources :artworks, except: [:patch, :put, :index]
 
