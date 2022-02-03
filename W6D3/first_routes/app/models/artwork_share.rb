@@ -9,7 +9,7 @@
 #  updated_at :datetime         not null
 #
 class ArtworkShare < ApplicationRecord
-    validates :artist_id, presence: true
+    validates :artwork_id, presence: true
     validates :viewer_id, presence: true
 
     #has one for artist
