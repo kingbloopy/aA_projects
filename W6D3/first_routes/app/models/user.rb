@@ -10,16 +10,18 @@
 class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
 
-  has_many :shares,
+  has_many :shares, dependent: :destroy,
     foreign_key: :viewer_id,
     class_name: :ArtworkShare
 
-  has_many :artists,
+  has_many :artists, 
     foreign_key: :artist_id,
     class_name: :Artwork
 
-  has_many :shared_artworks,
+  has_many :shared_artworks, dependent: :destroy,
     through: :shares,
     source: :artwork
+
+
 
 end

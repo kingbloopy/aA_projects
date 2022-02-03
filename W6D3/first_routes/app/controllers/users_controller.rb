@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     end
 
     def create 
-        user = User.new(params.require(:user).permit(user_params))
+        user = User.new(user_params)
         if user.save
             render json: user
         else 
@@ -33,12 +33,12 @@ class UsersController < ApplicationController
     # .where(author_id: params[:user_id])
     def destroy
         user = User.find(params[:id])
-        artworks = Artwork.where(artist_id: params[:id])
-        art_shares = ArtworkShare.where(viewer_id: params[:id])
+        # artworks = Artwork.where(artist_id: params[:id])
+        # art_shares = ArtworkShare.where(viewer_id: params[:id])
 
         if user.destroy
-            artworks.destroy
-            art_shares.destroy
+            # artworks.destroy
+            # art_shares.destroy
             render json: 'U got fuckin destroyed'
         else
             render json: user.errors.full_messages, status: 422
