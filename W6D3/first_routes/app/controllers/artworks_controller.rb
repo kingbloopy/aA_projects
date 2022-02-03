@@ -2,6 +2,12 @@ class ArtworksController < ApplicationController
 
 
     def index 
+        if params.has_key?(:artist_id)
+            artwork = Artwork.where(artist_id: params[:artist_id])
+            render json: artwork
+        else
+            render json: Artwork.all
+        end
         # artworks = Artwork.all 
         # render json: artworks
     end
@@ -30,7 +36,7 @@ class ArtworksController < ApplicationController
         end
 
         #double quotes because of interpolation 
-        
+
     end
 
     def destroy
