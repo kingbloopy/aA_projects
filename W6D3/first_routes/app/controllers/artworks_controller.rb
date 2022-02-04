@@ -4,8 +4,7 @@ class ArtworksController < ApplicationController
     def index 
         artwork = Artwork.where(artist_id: params[:user_id])
         if artwork.length == 0
-            redirect_to '/users' 
-        else
+            redirect_to '/users' else
             render json: artwork
         end
     end

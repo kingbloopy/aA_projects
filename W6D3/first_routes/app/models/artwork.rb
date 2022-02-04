@@ -25,7 +25,7 @@ class Artwork < ApplicationRecord
         through: :shares,
         source: :viewer
 
-    has_many :comments,
+    has_many :comments, dependent: :destroy,
         foreign_key: :artwork_id,
         class_name: :Artwork
 

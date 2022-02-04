@@ -8,10 +8,16 @@ Rails.application.routes.draw do
 
   resources :users, except: [:patch, :put] do
     resources :artworks, only: [:index]
+    resources :comments, only: [:index]
   end
   # GET /users/:user_id/artworks
+  # get '/users/:user_id/comments', to: 'comments#com_index'
 
-  resources :artworks, except: [:patch, :put, :index]
+  resources :artworks, except: [:patch, :put, :index] do
+    resources :comments, only: [:index]
+  end
 
   resources :artwork_shares, only: [:create, :destroy]
+
+  resources :comments, only: [:create, :destroy]
 end
