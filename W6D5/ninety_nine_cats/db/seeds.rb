@@ -5,9 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
 ActiveRecord::Base.transaction do 
   Cat.destroy_all
+  ActiveRecord::Base.connection.reset_pk_sequence!('cats')
 
   cat1 = Cat.create!(name: 'Bob', sex: 'M', color: 'purple', birth_date: '2020/01/20', description: 'fluffy boi')
 
