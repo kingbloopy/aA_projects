@@ -16,7 +16,11 @@ class CatsController < ApplicationController
   
   def create
     @cat = Cat.new(cat_params)
-    
+    if @cat.save
+      redirect_to 'cats/#{@cat.id}'
+    else
+      render json: @cat.errors.full_messages, status: 422
+    end
   end
 
   private
