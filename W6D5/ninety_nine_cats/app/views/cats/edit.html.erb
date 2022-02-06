@@ -1,22 +1,23 @@
 
-<h1>New Cat</h1>
+<h1>Edit Cat</h1>
 
 <form action="<%= cats_url %>" method="POST">
+  <input type="hidden" name="_method" value="PATCH">
 
   <label>Name:
-    <input type="text" name="cat[name]">
+    <input type="text" name="cat[name]" value="<%= @cat.name %>">
   </label>
   <br>
 
   <label for="birth-date">Birth Date:</label>
-  <input id="birth-date" type="date" name="cat[birth_date]">
+  <input id="birth-date" type="date" name="cat[birth_date]" value="<%= @cat.birth_date %>">
   <br>
 
   <label>Color:
     <select name="cat[color]">
       <option disabled selected >--Select a Color--</option>
       <% Cat::COLORS.each do |color| %>
-        <option value="<%= color %>"><%= color.upcase %></option>
+        <option value="<%= color %>" value="<%= @cat.color %>" ><%= color.upcase %></option>
       <% end %>
     </select>
   </label>

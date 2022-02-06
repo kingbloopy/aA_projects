@@ -17,8 +17,8 @@ require 'date'
 class Cat < ApplicationRecord
   COLORS = ['rainbow', 'unicorn', 'purple']
   validates :name, :sex, :color, :birth_date, :description, presence: true
-  validates :color, inclusion: {in: COLORS}
-  validates :sex, inclusion: {in: ['M', 'F']}
+  validates :color, inclusion: COLORS
+  validates :sex, inclusion: ['M', 'F']
 
   def age
     2022 - self.birth_date.year
