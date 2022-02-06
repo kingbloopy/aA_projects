@@ -3,5 +3,8 @@
 <% @cats.each do |cat| %>
   <li><a href="<%= cat_url(cat) %>"><%= cat.name %></a></li>
 <% end %>
+<br>
+<br>
 
+<a href="<%= "/cats/new" %>">Add New Cat</a>
 
