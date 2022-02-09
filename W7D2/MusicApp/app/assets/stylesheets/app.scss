@@ -1,0 +1,35 @@
+
+body {
+  background-color: antiquewhite;
+}
+
+header {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 50px;
+  font-weight: 600;
+  color:rgb(82, 28, 153);
+  padding: 20px;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px;
+}
+
+input {
+  background-color: rgb(215, 155, 230);
+  border-radius: 10px;
+  color: aliceblue;
+  border-color: rgb(236, 193, 245);
+}
+
+.sign-in {
+  margin-top: 20px;
+}
+
+.header {
+  display: flex;
+  background-color:rgb(243, 194, 114);
+  justify-content: space-between;
+}
