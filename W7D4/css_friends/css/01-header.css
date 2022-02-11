@@ -1,0 +1,82 @@
+/* PHASE 1: Header */
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: rgb(252, 252, 237);
+}
+
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  font-weight: 900;
+  font-size: 28px;
+  margin-left: 20px;
+  color: white;
+  cursor: pointer;
+  padding: 12px;
+  border-radius: 12px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(228, 120, 120);
+  /* padding: 20px; */
+  height: 80px;
+  border-bottom: solid rgb(252, 162, 162) 5px;
+}
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+}
+
+.nav {
+  margin-left: 20px;
+  color: white;
+  padding: 12px;
+  border-radius: 12px;
+}
+
+.nav:hover {
+  background-color: rgb(180, 88, 88);
+}
+
+.nav:last-child {
+  margin-right: 20px;
+}
+
+.logo:hover {
+  background-color: rgb(180, 88, 88);
+}
+
+.notifications {
+  display: none;
+  position: absolute;
+  top: 40px;
+}
+
+.notifications > li {
+  color: rgb(129, 61, 61);
+  padding: 6px;
+  /* margin: auto; */
+  margin-right: auto;
+  border-radius: 12px;
+  /* color: white; */
+  /* background-color: white; */
+}
+
+.notifications > li:hover {
+  background-color: rgb(155, 248, 248);
+}
+
+.not-wrapper:hover .notifications {
+  /* display: block; */
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
