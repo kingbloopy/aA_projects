@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   before_action :require_logged_in, only: [:destroy]
 
   def new
-    @user = User.new
+    # @user = User.find_by_credentials(params[:user][:email], params[:user][:password])
     render :new
   end
 
