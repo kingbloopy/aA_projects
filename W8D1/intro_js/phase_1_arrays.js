@@ -31,7 +31,6 @@ Array.prototype.transpose = function(){
     let subArr = [];
     
     for (let j = 0; j < this.length; j++){
-      debugger
       // if (this[j][i] !== undefined){
         subArr.push(this[j][i]);
       // }
@@ -44,8 +43,8 @@ Array.prototype.transpose = function(){
 }
 
 // arr = [[1, 2, 3], [1, 2, 3], [1 ,2, 3]];
-arr = [[1, 2, 3], [1, 2, 3, 4, 5], [1, 2, 3], [1, 2, 3, 4, 5], [1, 2, 3]];
-console.log(arr.transpose());
+// arr = [[1, 2, 3], [1, 2, 3, 4, 5], [1, 2, 3], [1, 2, 3, 4, 5], [1, 2, 3]];
+// console.log(arr.transpose());
 
 // Array.prototype.newTranspose = function(){
 //   let transposed = [];
