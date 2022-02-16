@@ -1,0 +1,39 @@
+/* PHASE 2: Thumbs */
+
+.thumb img {
+  height: 60px;
+  width: auto;
+  margin: 4px;
+  border: solid black 1px;
+  border-radius: 6px;
+}
+
+.thumb ul {
+  margin-top: 20px;
+  display: grid;
+  grid-gap: 1px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.thumb {
+  display: flex;
+  justify-content: center;
+}
+
+.thumb a {
+  position: absolute;
+  color: white;
+  font-size: 12px;
+  padding: 6px;
+  /* display: none; */
+}
+
+.thumb li {
+  display: flex;
+  justify-content: center;
+  align-content: flex-end;
+}
+
+/* .thumb li:hover {
+  display: block;
+} */
