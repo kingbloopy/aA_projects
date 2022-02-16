@@ -9,6 +9,21 @@ if (typeof window === 'undefined'){
  * and two white pieces at [3, 3] and [4, 4]
  */
 function _makeGrid () {
+  let grid = [];
+  for (let i=0; i < 8; i++) {
+    let row = [];
+    for (let j = 0; j < 8; j++) {
+      if ((i === 3 && j === 3) || (i === 4 && j === 4)) {
+        row.push(new Piece("white"))
+      } else if ((i === 4 && j === 3) || (i === 3 && j === 4)) {
+        row.push(new Piece("black"))
+      } else {
+        row.push(undefined);
+      }
+    }
+    grid.push(row);
+  }
+  return grid;
 }
 
 /**

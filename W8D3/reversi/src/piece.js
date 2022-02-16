@@ -1,7 +1,7 @@
 /**
  * Initializes the Piece with its color.
  */
-function Piece (color) {
+function Piece(color) {
     this.color = color;
 }
 
