@@ -96,15 +96,22 @@ Board.prototype.isOccupied = function (pos) {
  * 
  */
 
-Board.prototype._positionsToFlip = function(pos, color, dir, piecesToFlip){
-  let piecesToFlip = [];
+Board.prototype._positionsToFlip = function(pos, color, dir, piecesToFlip=[]){
   if (!this.isValidPos(pos)) {return [];}
-  for (let i = 0; i < Board.DIRS.length; i++) {
-    let dir = Board.DIRS[i];
-    let position = [pos[0] + dir[0], pos[1] + dir[1]];
-    if (!this.isMine(position, color)) {
-      piecesToFlip.push(position);
-    }
+
+  let position = [pos[0] + dir[0], pos[1] + dir[1]];
+  if ((position[0] < 0 || position[0] > 7) || (position[1] < 0 || position[1] > 7)){
+    return [];
+  }
+  if ((this.getPiece(position) === undefined)){
+    return [];
+  }
+  if (this.isMine(position, color)){
+    return piecesToFlip;
+
+  } else if (!this.isMine(position, color)) {
+    piecesToFlip.push(position);
+    this._positionsToFlip(position, color, dir, piecesToFlip);
   }
 };
 
