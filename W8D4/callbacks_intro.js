@@ -23,7 +23,17 @@ class Clock {
     // 1. Increment the time by one second.
     // 2. Call printTime.
     setInterval(() => {
+      if (this.seconds === 59) {
+        this.seconds = 0;
+        this.minutes += 1;
+      } 
+      if (this.minutes === 59) {
+        this.minutes = 0;
+        this.hours + 1;
+      } 
+      
       this.seconds += 1;
+
       this.printTime();
     }, 1000);
   }
@@ -31,6 +41,7 @@ class Clock {
 
 const clock = new Clock();
 // console.log(clock);
+
 
 
 
