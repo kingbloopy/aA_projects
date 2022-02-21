@@ -1,4 +1,3 @@
-
 function MovingObject(objOptions) {
   Object.keys(objOptions).forEach(key => {
     this[key] = objOptions[key];
