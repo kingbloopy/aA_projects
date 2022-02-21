@@ -8,7 +8,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
     window.Asteroid = Asteroid;
     window.Util = Util;
     let canvas = document.getElementById('game-canvas');
+    canvas.height = 720;
+    canvas.width = 1280;
     let ctx = canvas.getContext("2d");
     window.ctx = ctx
     window.canvas = canvas
+
+    new Game(canvas.width, canvas.height);
 });
