@@ -21,9 +21,17 @@ MovingObject.prototype.draw = function(ctx) {
 }
 
 MovingObject.prototype.move = function(){
-  this.pos[0] += this.vel[0];
-  this.pos[1] += this.vel[1];
+  if ((this.pos[0] === 500) || (this.pos[1] === 400)) {
+    this.pos[0] = Math.floor(Math.random() * 1280);
+    this.pos[1] = Math.floor(Math.random() * 720);
+  }
+  else {
+    this.pos[0] += this.vel[0];
+    this.pos[1] += this.vel[1];
+  }
 }
+
+
 
 
 
