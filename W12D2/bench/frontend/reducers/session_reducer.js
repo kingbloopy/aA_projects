@@ -1,4 +1,4 @@
-import { RECEIEVE_ERRORS, RECEIEVE_CURRENT_USER, LOGOUT_CURRENT_USER } from "../actions/session_actions";
+import { RECEIEVE_CURRENT_USER, LOGOUT_CURRENT_USER } from "../actions/session_actions";
 
 const _nullState = {
   id: null
@@ -15,3 +15,5 @@ const sessionReducer = (state = _nullState, action) => {
       return state;
   }
 }
+
+export default sessionReducer;
