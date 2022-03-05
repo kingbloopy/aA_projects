@@ -69,6 +69,11 @@ var Clock = /*#__PURE__*/function (_React$Component) {
       this.timeInterval = setInterval(this.tick, 1000);
     }
   }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      clearInterval(this.timeInterval);
+    }
+  }, {
     key: "render",
     value: function render() {
       var time = this.state.time;
@@ -76,13 +81,17 @@ var Clock = /*#__PURE__*/function (_React$Component) {
       var minutes = time.getMinutes();
       var seconds = time.getSeconds();
       var date = time.toDateString();
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "clock-wrapper"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
         className: "title"
-      }, "Clock"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", {
-        className: "time"
-      }, "Time: ", hours, ":", minutes, ":", seconds, " PDT"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", {
-        className: "date"
-      }, "Date: ", date)) //TODO add date later
+      }, "I Am Clock"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "clock"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "time-wrapper"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "Time: "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, hours, ":", minutes, ":", seconds, " PDT")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "date-wrapper"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "Date: "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, date)))) //TODO add date later
       ;
     }
   }]);

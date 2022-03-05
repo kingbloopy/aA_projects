@@ -16,6 +16,10 @@ class Clock extends React.Component {
     this.timeInterval = setInterval(this.tick,1000)
   }
 
+  componentWillUnmount(){
+    clearInterval(this.timeInterval);
+  }
+
   render(){
     const {time}  = this.state;
     const hours = time.getHours();
@@ -24,10 +28,18 @@ class Clock extends React.Component {
     const date = time.toDateString();
 
     return (
-      <div>
-        <h1 className="title">Clock</h1>
-        <h2 className="time">Time: { hours }:{ minutes }:{ seconds } PDT</h2>
-        <h2 className="date">Date: { date }</h2>
+      <div className="clock-wrapper">
+        <h1 className="title">I Am Clock</h1>
+        <div className="clock">
+          <div className="time-wrapper">
+            <h2>Time: </h2>
+            <h2>{ hours }:{ minutes }:{ seconds } PDT</h2>
+          </div>
+          <div className="date-wrapper">
+            <h2>Date: </h2>
+            <h2>{ date }</h2>
+          </div>
+        </div>
       </div>
         //TODO add date later
     );
