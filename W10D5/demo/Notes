@@ -1,0 +1,16 @@
+
+npm init -y
+
+npm install webpack
+
+npm install -D webpack-cli
+
+webpack.config.js
+// copy and paste
+
+create frontend folder with entry.jsx
+
+"start": "webpack --watch --mode=development"
+// to package.json
+
+npm install @babel/core @babel/preset-env @babel/preset-react babel-loader react react-dom

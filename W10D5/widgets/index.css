@@ -16,6 +16,7 @@
   padding: 10px;
   border-radius: 8px;
   border: 1px solid black;
+  margin-top: 10px;
 }
 
 .clock-wrapper {
@@ -23,4 +24,5 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 10px;
 }
