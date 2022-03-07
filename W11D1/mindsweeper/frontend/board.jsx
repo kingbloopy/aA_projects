@@ -17,14 +17,14 @@ export default class BoardJSX extends React.Component {
         );
       });
       return(
-        <div key={i}>
+        <div className="row" key={i}>
           {newRow} 
         </div>
       );
     });
 
     return (
-      <div>
+      <div className="row-container">
         {rows}
       </div>
     );

@@ -1,0 +1,12 @@
+
+.tile {
+  border: 0.5px solid black;
+  /* border-style: inset; */
+  width: 20px;
+  height: 20px;
+  text-align: center;
+}
+
+.row-container {
+  display: flex;
+}

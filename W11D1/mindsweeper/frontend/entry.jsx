@@ -11,8 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
     return(
       <div>
         <Game/>
-        <TileJSX/>
-
       </div>
     );
   }
