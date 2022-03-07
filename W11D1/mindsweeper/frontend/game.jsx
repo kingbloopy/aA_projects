@@ -2,10 +2,10 @@
 import React from "react";
 import BoardJSX from "./board";
 import TileJSX from "./tile";
-import Board from "./minesweeper";
+import {Board} from "./minesweeper";
 import Tile from "./minesweeper";
 
-class Game extends React.Component {
+export default class Game extends React.Component {
   constructor(props){
     super(props);
     this.state = {
