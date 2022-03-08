@@ -14,13 +14,38 @@ export default class Game extends React.Component {
     this.updateGame = this.updateGame.bind(this);
   }
 
-  updateGame() {
-    
+  updateGame(tile, flagged) {
+    //call toggleFlag() or explore()
+    if (flagged) {
+      tile.toggleFlag();
+    } else {
+      tile.explore();
+    }
+    //reset state using this.setState
+    this.setState({ board: this.state.board });
   }
 
   render() {
+    if (this.state.board.won()) {
+      return(
+        <div>
+          <h1>You Won!!!</h1>
+          <BoardJSX board={this.state.board} update={this.updateGame} />
+        </div>
+      );
+    } else if (this.state.board.lost()) {
+      return(
+        <div>
+          <h1>You Lost!!!</h1>
+          <BoardJSX board={this.state.board} update={this.updateGame} />
+        </div>
+      );
+    }
+
     return(
-      <BoardJSX board={this.state.board} update={this.updateGame} />
+      <div>
+        <BoardJSX board={this.state.board} update={this.updateGame} />
+      </div>
     );
   }
 }
