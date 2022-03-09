@@ -3,9 +3,18 @@ import { RECEIVE_TODOS, RECEIVE_TODO, REMOVE_TODO } from "../actions/todo_action
 
 
 
-// const initialState = {}
+const initialState = {
+  todos: {
+    1: {
+      id: 1,
+      title: 'take a shower',
+      body: 'and be clean',
+      done: false
+    }
+  }
+}
 
-const todosReducer = (state = {}, action) => {
+const todosReducer = (state = initialState, action) => {
   Object.freeze(state);
   const nextState = Object.assign({}, state);
   switch (action.type) {

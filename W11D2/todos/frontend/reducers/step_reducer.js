@@ -3,20 +3,20 @@ import { RECEIVE_STEPS, RECEIVE_STEP, REMOVE_STEP } from "../actions/step_action
 
 
 
-// const initialState = {
-//   1: {
-//     title: 'wash car',
-//     todo_id: 'with soap',
-//     done: false
-//   },
-//   2: {
-//     title: 'wash dog',
-//     todo_id: 'with shampoo',
-//     done: true
-//   },
-// }
+const initialState = {
+  1: {
+    title: 'wash car',
+    todo_id: 'with soap',
+    done: false
+  },
+  2: {
+    title: 'wash dog',
+    todo_id: 'with shampoo',
+    done: true
+  },
+}
 
-const stepsReducer = (state = {}, action) => {
+const stepsReducer = (state = initialState, action) => {
   Object.freeze(state);
   const nextState = Object.assign({}, state);
   switch (action.type) {
