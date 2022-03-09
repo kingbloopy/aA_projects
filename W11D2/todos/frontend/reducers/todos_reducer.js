@@ -4,13 +4,11 @@ import { RECEIVE_TODOS, RECEIVE_TODO, REMOVE_TODO } from "../actions/todo_action
 
 
 const initialState = {
-  todos: {
-    1: {
-      id: 1,
-      title: 'take a shower',
-      body: 'and be clean',
-      done: false
-    }
+  1: {
+    id: 1,
+    title: 'take a shower',
+    body: 'and be clean',
+    done: false
   }
 }
 
