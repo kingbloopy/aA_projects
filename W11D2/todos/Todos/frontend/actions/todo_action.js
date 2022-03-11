@@ -3,6 +3,7 @@ export const RECEIVE_TODOS = "RECEIVE_TODOS"; // accepts an array of todos
 export const RECEIVE_TODO = "RECEIVE_TODO"; // accepts a todo object
 export const REMOVE_TODO = "REMOVE_TODO";
 import * as todosAPI from "../util/todo_api_util";
+import { receiveErrors } from "./error_actions";
 
 export const receiveTodos = (todos) => {
   return {
@@ -28,7 +29,9 @@ export const removeTodo = (todo) => {
 
 export const createTodo = (todo) => (dispatch) => {
   return todosAPI.createTodo(todo)
-    .then(todo => dispatch(receiveTodo(todo)))
+    .then(todo => dispatch(receiveTodo(todo)),
+    err => dispatch(receiveErrors(err.responseJSON))
+    )
 }
 
 // fetchalltodos is a function that returns a function that takes in dispatch

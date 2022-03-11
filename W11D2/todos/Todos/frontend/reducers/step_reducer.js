@@ -2,7 +2,6 @@ import { RECEIVE_STEPS, RECEIVE_STEP, REMOVE_STEP } from "../actions/step_action
 // import { RECEIVE_TODO } from "../actions/todo_action";
 
 
-
 const initialState = {
   1: {
     title: 'wash car',
