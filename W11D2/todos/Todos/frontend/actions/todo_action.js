@@ -26,14 +26,15 @@ export const removeTodo = (todo) => {
 }
 
 
-export const createTodo = (todo) => {
-
+export const createTodo = (todo) => (dispatch) => {
+  return todosAPI.createTodo(todo)
+    .then(todo => dispatch(receiveTodo(todo)))
 }
 
 // fetchalltodos is a function that returns a function that takes in dispatch
 export const fetchAllTodos = () => (dispatch) => { 
   return ( // returns a function
-    todosAPI.fetchTodos() // ajax promise
-    .then(todos => dispatch(receiveTodos(todos))) // uses promise to dispatch request, returns pojo
+    todosAPI.fetchAllTodos() // ajax promise
+    .then(todos => dispatch(receiveTodos(todos))) // uses promise to dispatch a pojo with a response
   );
 }
