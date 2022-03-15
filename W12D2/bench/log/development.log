@@ -63,3 +63,17 @@ Processing by StaticPagesController#root as HTML
 Completed 200 OK in 1102ms (Views: 1099.3ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for ::1 at 2022-03-15 16:35:14 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 44ms (Views: 40.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2022-03-15 16:35:16 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 31ms (Views: 27.8ms | ActiveRecord: 0.0ms)
+
+
