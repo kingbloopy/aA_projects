@@ -1,12 +1,12 @@
 class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
   validates :password, length: {minimum: 6, allow_nil: true}
-  # validates :password_digest, presence: true
-  validates :password_digest, presence: { message: 'Password can\'t be blank' }
+  validates :password_digest, presence: true
+  # validates :password_digest, presence: { message: 'Password can\'t be blank' }
   validates :session_token, uniqueness: {scope: :username}
 
   attr_reader :password
-  after_intialize :ensure_session_token
+  after_initialize :ensure_session_token
 
   # spire
 
