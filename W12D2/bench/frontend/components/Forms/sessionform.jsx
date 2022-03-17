@@ -35,8 +35,7 @@ class SessionForm extends React.Component {
   render(){
     return(
       <div>
-        <h2>Please, {this.props.formType}</h2>
-        {/* <h2>Please, {this.props.formType} or {this.props.link}</h2> */}
+        <h2>Please, {this.props.formType} or {this.props.link}</h2>
         <form>
           <ul>
             {this.props.errors.map((error) => (

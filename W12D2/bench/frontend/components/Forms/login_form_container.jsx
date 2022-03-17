@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 import SessionForm from "./sessionform";
 import { Link } from "react-router-dom";
 import { login } from "../../actions/session_actions";
+import React from "react";
 
 const mapStateToProps = ({ errors }, ownProps) => ({
   errors: errors.session,
